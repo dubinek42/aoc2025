@@ -140,3 +140,5 @@ cython_debug/
 *.swo
 *~
 .DS_Store
+
+inputs/*.txt
