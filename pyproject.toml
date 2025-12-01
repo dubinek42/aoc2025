@@ -11,11 +11,13 @@ dependencies = [
 ]
 
 [tool.poetry]
-#packages = [{include = "aoc2025", from = "src"}]
 packages = []
 
 [tool.poetry.scripts]
 aoc = "aoc2025.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.1"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
