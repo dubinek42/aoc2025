@@ -1,5 +1,5 @@
 from aoc2025.utils.io import load_input
-from aoc2025.utils.parsing import lines
+from aoc2025.utils.parsing import lines, letter_and_number
 
 
 class Dial:
@@ -31,7 +31,7 @@ def solve_part1(input: str) -> int:
     dial = Dial()
     input_lines = lines(input)
     for line in input_lines:
-        direction, steps = _parse_line(line)
+        direction, steps = letter_and_number(line)
         dial.turn(direction, steps)
     return dial.zeros_end
 
@@ -39,7 +39,7 @@ def solve_part2(input: str) -> int:
     dial = Dial()
     input_lines = lines(input)
     for line in input_lines:
-        direction, steps = _parse_line(line)
+        direction, steps = letter_and_number(line)
         dial.turn(direction, steps)
     return dial.zeros_passed
 
@@ -47,10 +47,6 @@ def solve_part2(input: str) -> int:
 def run(sample: bool = False) -> None:
     input = load_input(day=1, sample=sample)
     print(solve_part1(input))
-
-
-def _parse_line(line: str) -> tuple[str, int]:
-    return line[0], int(line[1:])
 
 
 if __name__ == "__main__":
