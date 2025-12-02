@@ -1,4 +1,3 @@
-from aoc2025.utils.io import load_input
 from aoc2025.utils.parsing import lines, letter_and_number
 
 
@@ -42,12 +41,3 @@ def solve_part2(input: str) -> int:
         direction, steps = letter_and_number(line)
         dial.turn(direction, steps)
     return dial.zeros_passed
-
-
-def run(sample: bool = False) -> None:
-    input = load_input(day=1, sample=sample)
-    print(solve_part1(input))
-
-
-if __name__ == "__main__":
-    run()
