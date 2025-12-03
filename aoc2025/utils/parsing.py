@@ -25,3 +25,7 @@ def number_ranges(line: str) -> Generator[list[str], None, None]:
     for range_item in comma_separated_strs(line):
         low, high = range_item.split("-")
         yield list(str(x) for x in range(int(low), int(high) + 1))
+
+
+def str_to_digits(line: str) -> list[int]:
+    return [int(x) for x in line]
