@@ -1,4 +1,5 @@
 from typing import Callable
+
 from aoc2025.utils.parsing import lines, number_ranges
 
 
@@ -6,6 +7,7 @@ def solve_part1(input: str) -> int:
     input_lines = lines(input)
     ranges = number_ranges(input_lines[0])
     return sum(_count_invalid_in_range(r, _is_invalid) for r in ranges)
+
 
 def solve_part2(input: str) -> int:
     input_lines = lines(input)
@@ -39,5 +41,7 @@ def _is_invalid2(id_str: str) -> int | None:
     return None
 
 
-def _count_invalid_in_range(range_item: list[str], func: Callable[[str], int | None]) -> int:
+def _count_invalid_in_range(
+    range_item: list[str], func: Callable[[str], int | None]
+) -> int:
     return sum(result for x in range_item if (result := func(x)) is not None)

@@ -1,22 +1,22 @@
-from aoc2025.utils.parsing import lines, letter_and_number
+from aoc2025.utils.parsing import letter_and_number, lines
 
 
 class Dial:
     START = 50
     MAX = 99
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.value = self.START
         self.zeros_end = 0
         self.zeros_passed = 0
 
-    def turn(self, direction, steps):
+    def turn(self, direction: str, steps: int) -> None:
         for _ in range(steps):
             self.step(direction)
         if self.value == 0:
             self.zeros_end += 1
 
-    def step(self, direction):
+    def step(self, direction: str) -> None:
         if direction == "L":
             self.value -= 1
         elif direction == "R":
@@ -33,6 +33,7 @@ def solve_part1(input: str) -> int:
         direction, steps = letter_and_number(line)
         dial.turn(direction, steps)
     return dial.zeros_end
+
 
 def solve_part2(input: str) -> int:
     dial = Dial()

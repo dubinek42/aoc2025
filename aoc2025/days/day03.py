@@ -15,7 +15,9 @@ def highest_jolt(bank: str, turns: int = 2) -> int:
     bank_values = list(enumerate(str_to_digits(bank)))
     sorted_bank_by_value = sorted(bank_values, key=lambda x: x[1], reverse=True)
 
-    def find_highest(bank: list[tuple[int, int]], current_joltage: int, remaining_turns: int) -> int:
+    def find_highest(
+        bank: list[tuple[int, int]], current_joltage: int, remaining_turns: int
+    ) -> int:
         if remaining_turns == 0:
             return current_joltage
         if len(bank) < remaining_turns:
@@ -23,7 +25,9 @@ def highest_jolt(bank: str, turns: int = 2) -> int:
         for battery in bank:
             right_part = list(filter(lambda x: x[0] > battery[0], bank))
             new_joltage = current_joltage + (battery[1] * 10 ** (remaining_turns - 1))
-            if (result := find_highest(right_part, new_joltage, remaining_turns - 1)) != -1:
+            if (
+                result := find_highest(right_part, new_joltage, remaining_turns - 1)
+            ) != -1:
                 return result
         return -1
 
