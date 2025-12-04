@@ -1,5 +1,7 @@
 from typing import Generator
 
+import numpy as np
+
 
 def lines(text: str) -> list[str]:
     return text.splitlines()
@@ -29,3 +31,11 @@ def number_ranges(line: str) -> Generator[list[str], None, None]:
 
 def str_to_digits(line: str) -> list[int]:
     return [int(x) for x in line]
+
+
+def bits_array(text: str) -> np.ndarray:
+    """Parse lines of `.` and `@` into a 2D numpy array."""
+
+    rows = [line.strip() for line in text.splitlines() if line.strip()]
+    data = [[1 if ch == "@" else 0 for ch in row] for row in rows]
+    return np.array(data, dtype=int)
