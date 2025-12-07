@@ -12,12 +12,9 @@ def solve_part1(input: str) -> int:
         ys_next = set()
         for y in ys:
             if array[x][y] == ".":
-                array[x][y] = "|"
                 ys_next.add(y)
             if array[x][y] == "^":
                 splits += 1
-                array[x][y - 1] = "|"
-                array[x][y + 1] = "|"
                 ys_next.add(y - 1)
                 ys_next.add(y + 1)
         ys = ys_next
@@ -36,11 +33,8 @@ def solve_part2(input: str) -> int:
         ys_next = set()
         for y in ys:
             if array[x][y] == ".":
-                array[x][y] = "|"
                 ys_next.add(y)
             if array[x][y] == "^":
-                array[x][y - 1] = "|"
-                array[x][y + 1] = "|"
                 ys_next.add(y - 1)
                 ys_next.add(y + 1)
                 possible_ways[y - 1] += possible_ways[y]
