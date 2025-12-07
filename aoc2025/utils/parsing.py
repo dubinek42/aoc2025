@@ -56,6 +56,12 @@ def bits_array(text: str) -> np.ndarray:
     return np.array(data, dtype=int)
 
 
+def array_2d(text: str) -> list[list[str]]:
+    rows = [line.strip() for line in text.splitlines() if line.strip()]
+    data = [[ch for ch in row] for row in rows]
+    return data
+
+
 def two_parts_separated_by_empty_line(text: str) -> tuple[str, str]:
     parts = text.split("\n\n")
     return parts[0], parts[1]
