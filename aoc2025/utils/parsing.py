@@ -15,6 +15,10 @@ def comma_separated_ints(line: str) -> list[int]:
     return [int(x) for x in line.split(",")]
 
 
+def comma_separated_ints_tuples(line: str) -> tuple[int, ...]:
+    return tuple(int(x) for x in line.split(","))
+
+
 def comma_separated_strs(line: str) -> list[str]:
     return line.split(",")
 
